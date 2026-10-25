@@ -1,7 +1,7 @@
 {
   "name": "TV Remote",
   "version": "1.0",
-  "package_path": "application.zip",
+  "package_path": "https://tannerstratford.github.io/kaios-tvremote/Apps-directory/TV-Remote/application.zip",
   "packaged_size": 15631,
   "size": 15631,
   "type": "web",
