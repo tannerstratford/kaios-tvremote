@@ -3,30 +3,21 @@
   "short_name": "TV Remote",
   "description": "Remote control for Roku and Vizio SmartCast TVs on your Wi-Fi",
   "start_url": "/index.html",
-  "lang": "en-US",
+  "display": "standalone",
+  "background_color": "#16181d",
   "theme_color": "#16181d",
+  "lang": "en-US",
+  "scope": "/",
+  "orientation": "portrait",
+  "id": "tvremote",
+  "version": "1.0",
   "icons": [
-    {
-      "src": "/icons/icon_56.png",
-      "type": "image/png",
-      "sizes": "56x56"
-    },
-    {
-      "src": "/icons/icon_112.png",
-      "type": "image/png",
-      "sizes": "112x112"
-    }
+    { "src": "/icons/icon_56.png", "type": "image/png", "sizes": "56x56" },
+    { "src": "/icons/icon_112.png", "type": "image/png", "sizes": "112x112" }
   ],
   "b2g_features": {
     "version": "1.0",
-    "type": "privileged",
-    "permissions": {
-      "systemXHR": {},
-      "tcp-socket": {}
-    },
-    "origin": "tvremote"
-  },
-  "display": "standalone",
-  "id": "tvremote",
-  "version": "1.0"
+    "origin": "tvremote",
+    "permissions": { "systemXHR": {}, "tcp-socket": {} }
+  }
 }
