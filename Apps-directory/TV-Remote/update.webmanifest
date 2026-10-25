@@ -1,0 +1,9 @@
+{
+  "name": "TV Remote",
+  "version": "1.0",
+  "package_path": "application.zip",
+  "packaged_size": 15623,
+  "size": 15623,
+  "type": "privileged",
+  "b2g_features": { "type": "privileged", "permissions": { "systemXHR": {}, "tcp-socket": {} }, "version": "1.0", "origin": "tvremote" }
+}
