@@ -1,0 +1,41 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; }
+body {
+  background: #16181d; color: #e6e8ee; font: 14px "Open Sans", sans-serif;
+  display: flex; flex-direction: column; overflow: hidden;
+}
+header { background: #4a6cf7; color: #fff; font-weight: bold; padding: 4px 8px; font-size: 15px;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+#status { font-size: 11px; padding: 2px 8px; color: #9fd99f; background: #1d2027;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+#status.err { color: #ff8a8a; }
+main { flex: 1; overflow-y: auto; }
+footer { display: flex; justify-content: space-between; align-items: center; height: 30px;
+  background: #000; font-weight: bold; font-size: 13px; padding: 0 6px; }
+footer span { flex: 1; } #sk-center { text-align: center; text-transform: uppercase; } #sk-right { text-align: right; }
+
+/* remote view */
+.dpad { display: grid; grid-template-columns: repeat(3, 38px); grid-template-rows: repeat(3, 30px);
+  gap: 3px; justify-content: center; margin: 6px 0 4px; }
+.dpad div { background: #262a33; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 14px; }
+.dpad .ok { background: #4a6cf7; border-radius: 15px; font-weight: bold; font-size: 12px; }
+.dpad .blank { background: none; }
+.keys { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px; padding: 0 6px; }
+.keys div { background: #262a33; border-radius: 6px; padding: 2px 4px; display: flex; gap: 5px; align-items: center; font-size: 11px; height: 24px; }
+.keys b { color: #8a90a0; font-size: 12px; min-width: 9px; }
+.flash { background: #4a6cf7 !important; color: #fff; }
+.keys .power { color: #ff6b7d; }
+
+/* list views */
+ul.list { list-style: none; }
+ul.list li { padding: 7px 8px; border-bottom: 1px solid #262a33; }
+ul.list li .sub { font-size: 11px; color: #8a90a0; }
+ul.list li.sel { background: #4a6cf7; color: #fff; }
+ul.list li.sel .sub { color: #dfe4ff; }
+ul.list li.head { color: #8a90a0; font-size: 11px; font-weight: bold; padding: 4px 8px; background: #1d2027; }
+
+/* text entry */
+.form { padding: 10px 8px; }
+.form p { font-size: 12px; color: #8a90a0; margin-bottom: 8px; }
+.form input { width: 100%; font-size: 18px; padding: 6px; background: #262a33; color: #fff;
+  border: 2px solid #4a6cf7; border-radius: 6px; }

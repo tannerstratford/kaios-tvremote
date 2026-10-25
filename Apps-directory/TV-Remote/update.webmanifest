@@ -8,6 +8,9 @@
   "b2g_features": {
     "version": "1.0",
     "origin": "tvremote",
-    "permissions": { "systemXHR": {}, "tcp-socket": {} }
+    "permissions": {
+      "systemXHR": {},
+      "tcp-socket": {}
+    }
   }
 }
