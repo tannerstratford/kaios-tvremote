@@ -19,6 +19,8 @@ This repo holds both the **app source** and the **hosted sideload source**
 
 ```bash
 ./build.sh          # rebuild the package from src/
+SIGN=1 ./build.sh   # same, plus a self-signed zigbert signature (sign.py;
+                    # key lives in ~/.config/kaios-tvremote/signing, not the repo)
 git add -A && git commit -m "…" && git push   # publish to GitHub Pages
 ```
 

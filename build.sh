@@ -20,6 +20,11 @@ assert "manifest.webmanifest" in zipfile.ZipFile(out).namelist()
 print("built", out)
 PY
 
+# Opt-in: SIGN=1 ./build.sh adds a self-signed zigbert signature (see sign.py).
+if [[ "${SIGN:-0}" == "1" ]]; then
+  python3 sign.py "$APP/application.zip"
+fi
+
 cp "$SRC/manifest.webmanifest" "$APP/manifest.webmanifest"
 SIZE=$(stat -c%s "$APP/application.zip")
 SHA=$(sha256sum "$APP/application.zip" | cut -d' ' -f1)
