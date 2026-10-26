@@ -27,12 +27,21 @@ git add -A && git commit -m "…" && git push   # publish to GitHub Pages
 ## Install status
 
 - **Emulator:** works (KaiOS simulator, `appscmd install`).
-- **Retail phone (locked `user` build):** blocked at the signature gate.
-  The install pipeline (manifest, origin, download) all passes, but the
-  verifier rejects the unsigned package:
-  `Verify zip error: MissingMetaFile("META-INF/zigbert.rsa")` → `InvalidSignature`.
-  Clean install needs a dev / `userdebug` KaiOS device, which accepts unsigned
-  packages.
+- **Retail phone (locked `user` build):** installed and running.
+  Install path: browser-staged `AppsManager.installPackage` on the hosted
+  `update.webmanifest` (`index.html` → System page → `javascript:` injection).
+  The package carries a `META-INF/` zigbert signature (`SIGN=1 ./build.sh`,
+  see `sign.py`) so it passes the verifier.
+- **Vizio cert:** SmartCast serves HTTPS (:7345) with a self-signed cert. Trust
+  it on the phone via the **browser's own** cert-exception page — visit
+  `https://<tv-ip>:7345/` and hit **add permanent exception**. The override
+  store is one Gecko singleton shared by every app, so the app's HTTPS then
+  succeeds, and the permanent exception persists across reboots. (The
+  "unhandled exception" the browser then shows is just the SmartCast root URL
+  failing to render as a page — the exception itself took.) `trust.html`/
+  `probe.html` were an attempt to do this from the injected context — that
+  context is privileged-*web*, not chrome, so it has no
+  `nsICertOverrideService`; the browser page is the working route.
 
 ### Manifest notes (what the KaiOS 3.1 verifier requires)
 
