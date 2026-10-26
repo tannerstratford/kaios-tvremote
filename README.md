@@ -43,24 +43,23 @@ git add -A && git commit -m "…" && git push   # publish to GitHub Pages
   context is privileged-*web*, not chrome, so it has no
   `nsICertOverrideService`; the browser page is the working route.
 
-## Install via OStore (recommended)
+## Install (browser-staged `javascript:` route)
 
-Instead of the `javascript:` staging ritual, add this repo as a **source** in
-[OStore](https://github.com/Garbagebuild/JScalated-Store) on the phone and
-install/update with a tap:
+On the phone browser:
 
-1. Open OStore → **Add source**.
-2. Enter the Pages URL:
+1. Open the hosted installer page:
    ```
    https://tannerstratford.github.io/kaios-tvremote/
    ```
-3. TV Remote appears under *Utilities* → install. OStore also handles update
-   checks — bump `version` + `sha256` in `webapps.json` on a new build (which
-   `build.sh` stamps) and the phone sees the update.
-
-The repo already serves the layout OStore expects (root `webapps.json` +
-`Apps-directory/TV-Remote/{manifest,update}.webmanifest` + `application.zip`),
-and GitHub Pages sends the CORS header OStore requires.
+2. Tap **Stage TV Remote installer** (writes the installer into `window.name`,
+   then jumps to the System page).
+3. On the blank System page, type these into the address bar, in order:
+   ```
+   javascript:document.createElement('script')
+   javascript:document.write(name)
+   ```
+4. A black bar reports the result — **INSTALL OK** means it's on the phone;
+   **INSTALL FAILED** shows the exact reason.
 
 ### Manifest notes (what the KaiOS 3.1 verifier requires)
 
