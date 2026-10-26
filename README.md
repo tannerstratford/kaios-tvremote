@@ -12,7 +12,7 @@ This repo holds both the **app source** and the **hosted sideload source**
 | `build.sh` | Packages `src/` into the hosted source; updates sizes + sha |
 | `Apps-directory/TV-Remote/application.zip` | Built package (generated) |
 | `Apps-directory/TV-Remote/{manifest,update}.webmanifest` | Package + update manifests |
-| `webapps.json` | OStore/JScalated catalogue entry |
+| `webapps.json` | [OStore / JScalated](https://github.com/Garbagebuild/JScalated-Store) catalogue entry |
 | `index.html`, `appsmanager.js`, `installer.js` | Browser-staged installer page |
 
 ## Build
@@ -43,8 +43,36 @@ git add -A && git commit -m "…" && git push   # publish to GitHub Pages
   context is privileged-*web*, not chrome, so it has no
   `nsICertOverrideService`; the browser page is the working route.
 
+## Install via OStore (recommended)
+
+Instead of the `javascript:` staging ritual, add this repo as a **source** in
+[OStore](https://github.com/Garbagebuild/JScalated-Store) on the phone and
+install/update with a tap:
+
+1. Open OStore → **Add source**.
+2. Enter the Pages URL:
+   ```
+   https://tannerstratford.github.io/kaios-tvremote/
+   ```
+3. TV Remote appears under *Utilities* → install. OStore also handles update
+   checks — bump `version` + `sha256` in `webapps.json` on a new build (which
+   `build.sh` stamps) and the phone sees the update.
+
+The repo already serves the layout OStore expects (root `webapps.json` +
+`Apps-directory/TV-Remote/{manifest,update}.webmanifest` + `application.zip`),
+and GitHub Pages sends the CORS header OStore requires.
+
 ### Manifest notes (what the KaiOS 3.1 verifier requires)
 
 - `b2g_features` must **not** carry a `type` field; use top-level `type: "web"`
   in `update.webmanifest`.
 - `package_path` in `update.webmanifest` must be an **absolute** `https://` URL.
+
+## Credits
+
+Installing a custom app on a locked retail KaiOS phone is only possible thanks
+to **GarbageBuild** and the **OStore / JScalated Store** project
+(<https://jscalated.netlify.app/>,
+<https://github.com/Garbagebuild/JScalated-Store>). The browser → AppsManager
+install path, the catalogue/source format, and the packaging conventions this
+repo follows all come from that work. Credit to him for making it possible.
