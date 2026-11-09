@@ -7,10 +7,10 @@
     {
       "folder": "TV-Remote",
       "name": "TV Remote",
-      "version": "1.1",
+      "version": "1.2",
       "category": "Utilities",
       "description": "Remote control for Roku and Vizio SmartCast TVs on your Wi-Fi",
-      "sha256": "4588ad7f35cf879d8ce4f696c677715d35f70ea537879332954b3cd8d05e703a"
+      "sha256": "cea2485b6024d14d2e0f2d0c525e966d55186ab6c8d8fa15232c9f0931fe0a05"
     }
   ]
 }
