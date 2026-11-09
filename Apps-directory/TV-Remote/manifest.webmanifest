@@ -10,13 +10,13 @@
   "scope": "/",
   "orientation": "portrait",
   "id": "tvremote",
-  "version": "1.0",
+  "version": "1.1",
   "icons": [
     { "src": "/icons/icon_56.png", "type": "image/png", "sizes": "56x56" },
     { "src": "/icons/icon_112.png", "type": "image/png", "sizes": "112x112" }
   ],
   "b2g_features": {
-    "version": "1.0",
+    "version": "1.1",
     "origin": "tvremote",
     "permissions": { "systemXHR": {}, "tcp-socket": {} }
   }
